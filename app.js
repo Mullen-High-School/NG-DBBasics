@@ -3,7 +3,6 @@ var myApp = angular.module('myApp', []);
 myApp.controller('mainController', ['$scope', '$http', function ($scope, $http) 
     {
     $scope.newToDo = '';
-    }
 
     $http.get('http://159.203.201.92/todos')
         .success(function (result) 
@@ -31,5 +30,5 @@ myApp.controller('mainController', ['$scope', '$http', function ($scope, $http)
                 console.log(data);
                 });
         };
-    ]);
+    }]);
 
