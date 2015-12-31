@@ -1,13 +1,16 @@
 var myApp = angular.module('myApp', []);
+var host = "http://159.203.201.92";
+var port = "80";
+var domain = host + ":" + port;
 
 myApp.controller('mainController', ['$scope', '$http', function ($scope, $http) 
     {
     $scope.newToDo = '';
 
-    $http.get('http://159.203.201.92/todos')
+    $http.get(domain + '/todos')
         .success(function (result) 
             {
-            $scope.todos = result;
+            $scope.todos = result.data;
             console.log($scope.todos);
             })
         .error(function (data, status) 
@@ -18,7 +21,7 @@ myApp.controller('mainController', ['$scope', '$http', function ($scope, $http)
     $scope.newToDo = '';
     $scope.addToDo = function () 
         {
-        $http.post('http://159.203.201.92/todos', { newToDo: $scope.newToDo })
+        $http.post(domain + '/todos', { newToDo: $scope.newToDo })
             .success(function (result) 
                 {
                 console.log(result);
