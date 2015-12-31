@@ -10,7 +10,7 @@ myApp.controller('mainController', ['$scope', '$http', function ($scope, $http)
     $http.get(domain + '/todos')
         .success(function (result) 
             {
-            $scope.todos = result;
+            $scope.todos = result.data;
             console.log($scope.todos);
             })
         .error(function (data, status) 
