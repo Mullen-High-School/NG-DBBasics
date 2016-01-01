@@ -18,17 +18,18 @@ myApp.controller('mainController', ['$scope', '$http', function ($scope, $http)
             console.log("Oops..." + data);
             });
     
-    $scope.newToDo = {
+    var newToDo = {
 				title : 'First POST',
 				body : 'I sent my first POST via AngularJS',
 				done : 'true'
 		};
+        
     $scope.addToDo = function () 
         {
-        $http.post(domain + '/todos', { newToDo: $scope.newToDo })
+        $http.post(domain + '/todos', newToDo, JSON)
             .success(function (result) 
                 {
-                console.log(result);
+                console.log("It works!  " + result);
                 $scope.todos = result;
                 $scope.newToDo = '';                
                 })
@@ -40,13 +41,5 @@ myApp.controller('mainController', ['$scope', '$http', function ($scope, $http)
     }]);
 
 
-//var dataObj = {
-//				title : 'First POST',
-//				body : 'I sent my first POST via AngularJS',
-//				done : 'true'
-//		};	
-//		var res = $http.post('/savecompany_json', dataObj);
-//		res.success(function(data, status, headers, config) {
-//			$scope.message = data;
-//		});
+
 
