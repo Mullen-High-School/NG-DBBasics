@@ -18,11 +18,19 @@ myApp.controller('mainController', ['$scope', '$http', function ($scope, $http)
             console.log("Oops..." + data);
             });
     
-    var newToDo = {
-				title : 'First POST',
-				body : 'I sent my first POST via AngularJS',
-				done : 'true'
-		};
+    var newToDo = 
+        {                                                                               
+        "data": 
+            {                                                                     
+            "type": "todos",                                                            
+            "attributes": 
+                {                                                           
+                "title": "Create database",                                                     
+                "body": "Do I really have this working now?",
+                "done": false                                                            
+                }                                                                         
+            }                                                                             
+        }  
         
     $scope.addToDo = function () 
         {
